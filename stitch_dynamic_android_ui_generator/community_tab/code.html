@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop Community - Discover Stories</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c7e9",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "on-primary-container": "#7586a5",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#00696b",
+                        "primary-container": "#0a1d37",
+                        "on-primary-fixed-variant": "#364763",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#75777e",
+                        "secondary-fixed-dim": "#2ddbde",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d76135",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00030a",
+                        "on-secondary-container": "#006e70",
+                        "tertiary": "#090100",
+                        "secondary-container": "#56f5f8",
+                        "on-tertiary-fixed": "#380c00",
+                        "tertiary-container": "#3b0d00",
+                        "on-tertiary-fixed-variant": "#822800",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#44474d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#5af8fb",
+                        "primary-fixed-dim": "#b6c7e9",
+                        "surface-tint": "#4e5f7c",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-fixed": "#081c36",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "16px",
+                        "container-padding": "20px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "section-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface dark:bg-background shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">explore</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8VtlaWSNox7Ji3N5TOabEbSSMgbq_2p5jvcOWBSsL2orUZ7JmSj4ReOILXE8_WwFiWam7pHCQzDOoFPL_WoKYGrdof0fRus77tLg_V2pm2i2FvvL3ayaEbCWBOiI6wMKRiUTjoHhUlauJb4dEDDir9VvbBpMXO9a64tsE5WpM7Ks9HGrn2PuJWbZGhGolGXG3S2lEnFM4h2uWowj3maswjJsxxDZ9JuoPSlL6cFXW5u9ZkHEpoxoGEwcAfVHwXRalM9N-c9-fDg"/>
+</div>
+</div>
+</header>
+<main class="mt-20 px-container-padding max-w-4xl mx-auto">
+<!-- Trending Header -->
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Community Stories</h2>
+<a class="text-label-md font-label-md text-secondary dark:text-secondary-fixed flex items-center gap-1 uppercase" href="#">
+                See Trending <span class="material-symbols-outlined text-[16px]">trending_up</span>
+</a>
+</div>
+<!-- Stories Carousel (Horizontal) -->
+<section class="mb-8 overflow-x-auto hide-scrollbar flex gap-4 pb-2">
+<!-- Add Story -->
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center bg-surface-container-lowest">
+<span class="material-symbols-outlined text-secondary">add</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">You</span>
+</div>
+<!-- Story Items -->
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-full border-2 border-secondary p-0.5">
+<img alt="User" class="w-full h-full rounded-full object-cover" data-alt="A portrait of a cheerful traveler with windblown hair, smiling against a backdrop of a vibrant sunset over a coastal town. The lighting is warm and golden, reflecting a modern light-mode travel aesthetic. The image captures a sense of freedom and authentic discovery in a high-quality lifestyle photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCahT9tj9wwJjBIMd7eK2bRjWCe7bWbkaKedqutnTnDgxHzp5kBY0Rd3BRDWk7G6xOh5baUJ8CKn3gPh82V6dITEkN1pC3GZtTlDA3qV0VMhTDmpNWpwOGezynHDxM4hKCFBW0jJk-QwAhWikzT2MV5BYB9ioH9LjpWWd0YB9TJyS5C0XZUWSoZy4teKbhtwszVsV0HDm3eM53QTdhIxmGdcowwZ18wmTLW6V5lZU6PaLSGwtKuWzyzjnmbGAOFUgAuQKO8yJisDw"/>
+</div>
+<span class="text-label-md font-label-md text-on-surface">Sarah J.</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-full border-2 border-secondary p-0.5">
+<img alt="User" class="w-full h-full rounded-full object-cover" data-alt="A close-up shot of a male adventurer wearing a rugged outdoor hat, looking off-camera with a contemplative expression. He is surrounded by the misty greens of a lush rainforest. The aesthetic is clean, sharp, and focused, utilizing natural, diffused lighting to emphasize the textures of his clothing and the environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVF4NPyHUTW5HXKIrIq4VOaUpp_UhZ7u_HcVEm9aCn1xlTI3t9OlG05Kgcof2603n25C8DOq3It1EVRX5S7og77bcqKVkrymDu9zLAlrN7_Li6gQbdiS20HrdL8x1k1HeCIggqsfrIyKivUVrHn40TkdE1XOO8XpT-HLSuXru6yWPcu_LzUqSOFqB5mEu-bEgsCPTVlH6EhiRWHERh_NP4XX-x7mDbsfYRpdZQIRNZFRy2Vbgj2M5hYpt5XcyCY3-PJE7HfcRDEg"/>
+</div>
+<span class="text-label-md font-label-md text-on-surface">Marco L.</span>
+</div>
+<div class="flex-shrink-0 flex flex-col items-center gap-2">
+<div class="w-16 h-16 rounded-full border-2 border-secondary p-0.5">
+<img alt="User" class="w-full h-full rounded-full object-cover" data-alt="A high-contrast profile of a young woman traveler standing in a bustling neon-lit night market. The palette is dominated by deep blues and vibrant pinks, creating an energetic and urban aesthetic. The focus is sharp on the subject, while the background is a soft, colorful bokeh of city lights and street life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs57cEuyrwddS3GD7leKW0ctpwEEazeOf8TWvn1j1489MK41FdsAU3yZcA632CEpuLHIlxqN-rtdl0xgQOuX5IvHjY5_vXlU5wLvVsRaIubG3xwn3dWvtlO-E7QEOh26XuunBGXz1KbGZ9Hg5X-iN8STiQzEJO55XfAcfCnam6nZhujKPlbYi_VnU5TADqCTseu2ZRrSMZeXzEnZj156lwFzhOHxbVVqQmbvOzoAB_BRjvI-ne_RvQJYmpwrgP5PRALC6WhaRrTQ"/>
+</div>
+<span class="text-label-md font-label-md text-on-surface">Elena V.</span>
+</div>
+</section>
+<!-- Social Feed Bento / List -->
+<div class="space-y-card-gap">
+<!-- Post 1: Swiss Alps -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-surface-variant/30">
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIfJ-_vkTpCFjonkGycSa7jP32rYytAVMdQLr-llEbDw8oOf-XBFc7eCL1juf39hQHWwMMCi5EcDqWyon-0oh46G51GXW0ax3YVaaFz1wlwGRxJtO39fYxqd9TtNyXA3bdHmrKEGOqrGSGCsFLznQQfeBD3LKZYnUhW6m-4glDl7XqN3bKektNNX6BkuW6oKOE3UxgIc-RwIZDHDK-jH-R5s4-DrVmyiZO6gJPetVwhdX6Edmb_bB-yAOuHxdOUT0JfP9SKHhI0Q"/>
+<div>
+<p class="font-headline-sm text-body-lg text-on-surface leading-tight">Sarah Jenkins</p>
+<p class="text-label-md font-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Swiss Alps • 2h ago
+                            </p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline">more_vert</button>
+</div>
+<div class="px-4 pb-3">
+<p class="text-body-md font-body-md text-on-surface">Finally made it to the peak! The air is so thin but the view is absolutely worth every step. 🏔️✨ #AlpsAdventure #Traveloop</p>
+</div>
+<div class="relative aspect-video mx-4 rounded-lg overflow-hidden group">
+<img alt="Swiss Alps" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105" data-alt="A breathtaking wide-angle landscape of the Swiss Alps at sunrise, featuring snow-capped peaks piercing through a sea of clouds. The foreground shows a pristine alpine meadow with tiny wildflowers. The lighting is crisp and ethereal, with cool blues and warm morning oranges. The overall visual style is epic, expansive, and high-resolution, evoking a sense of tranquil grandeur." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-l6-vR1zk6B-Zqa3dbcvMwgP0tG0M2-NvP5dj9nPc_X369iWeN4VCEFfa3fj090c37pb3yalA42FbIFv-9GdChcwnvLjb7hJ72C3JGnzXtVg4AQVrB2wjuIRr6fOtRKyydSBw47iNb0EioQOSzFjx8eJUYc8kurGoNWo1vMxzhIx5yX5isR1OvxPLomN2Ka34EaVQb7HbseH0Mk4Gf0pJBMQQzyPFJJObnRBE5VqVUTkWCTVn3-TZQB1Y1tov6WmPhRxVc00n6A"/>
+<div class="absolute bottom-3 right-3 bg-black/40 backdrop-blur-md px-2 py-1 rounded text-white text-[10px] font-bold">1/4</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-error transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-label-md font-label-md">1.2k</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-secondary transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-label-md font-label-md">84</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-secondary transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Post 2: Fushimi Inari -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-surface-variant/30">
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW4oR_JsW6Q1NIJff566A85ojU7O0izQXzv9L4ru8I493cJwu8oIo2YKGU__LbNrVvcEMmtSG3NIW2nIzUF-M5boVP_0ODdGnOoJ10bNaW3aTRqtWgD8Wj25uMqeMTmAY0p2uxhj4Ym3AxtJOZSekAIp2jadQZQnorPsvcGavrEy2OBKxluA6ftqCeXci1Q3Mtzg3qoZN0kw476exnHnkuTllhvOkkdHH3FuULJinbK-LK3Z8Xk8ILHTtzCHMmK-CqG9t1HQNUIg"/>
+<div>
+<p class="font-headline-sm text-body-lg text-on-surface leading-tight">Marco Leone</p>
+<p class="text-label-md font-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Kyoto, Japan • 5h ago
+                            </p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline">more_vert</button>
+</div>
+<div class="px-4 pb-3">
+<p class="text-body-md font-body-md text-on-surface">The rhythm of the orange gates is hypnotic. Kyoto has a soul that speaks through every path. ⛩️</p>
+</div>
+<div class="grid grid-cols-2 gap-2 mx-4 mb-2">
+<div class="aspect-square rounded-lg overflow-hidden">
+<img alt="Fushimi Inari" class="w-full h-full object-cover" data-alt="A perspective shot looking through a corridor of thousands of vibrant orange Torii gates at Fushimi Inari Shrine. The path is dappled with soft sunlight filtering through the surrounding cedar trees. The lighting creates a rhythmic pattern of shadows and highlights. The aesthetic is culturally rich, serene, and features a clean, professional travel photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKMSHGQc44ZUpAt_adPQog-MuQpxX6hcSnCu6bHta3JBQ7vRVabQQAUxvB_P4_lqBTSPwyEclDEtyR6j-QuG6iHz8RtHfkwfG2eRogPyI1UZM-0t2MIclUZd5Jcwk0D5GohVoZYII6sfEXxFPOk_rMedvANBf9lIgwIYqQbrXdg1ZW2w4W8Iep8lJjcs5jVQC8fsAHWQGhRwpopmwomEDMMXgf-A8kcj1dhtM2EZGjrcnNRNUbO87hyafncwwVipVyf4KBOqSmtA"/>
+</div>
+<div class="grid grid-rows-2 gap-2">
+<div class="rounded-lg overflow-hidden">
+<img alt="Kyoto street" class="w-full h-full object-cover" data-alt="A detailed close-up of a traditional Japanese street lamp in Gion, Kyoto, during the blue hour. The warm glow of the lamp contrasts against the deep blue of the evening sky. The background shows blurred architectural details of wooden machiya houses. The lighting is intimate and atmospheric, reflecting a high-end, modern travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc0YgYPIWmmpuoNliPhzO9MwjjcFVfzMmPT4RsALTHXAWeboz4Tpkhp11w7BbSC_VYgV4P6a6Ugzx6CC8B8891qqfs-2_BhR2cNPwYiaj27PcGEgeeH6Ycs9SNFfwhJiSoc3YKVtRQgr99hG0ii3fP6aEQWR_7EEB8Ph9oLeWyXDuoKECcXMJFTZ1o20LAxl00HaiHj2UknyNvqlXY-ir_T6lIpn5lzhsIgqhJOyvJKM08pTeGk6P3dehpYi4xkVblmIREG6ztPw"/>
+</div>
+<div class="rounded-lg overflow-hidden relative">
+<img alt="Temple" class="w-full h-full object-cover" data-alt="A serene view of a Zen garden with perfectly raked white sand and weathered mossy rocks. The lighting is soft and even, highlighting the minimalist textures of the garden. The overall mood is peaceful and meditative, rendered in a sophisticated, light-mode palette that emphasizes clarity and balance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD38pY0IKLYajxwfBWt8NB3KVtFcdl4H-cMqpUGHbxX9lH4nM6N5C3ObqwZkA_96cRO29DRWjwMAR-f7c2PEFefV0ZVBBcrc74Gdu_rWquaHl6pue7UiVodJi9_3-qrOjW8OQ_oUluPjz6jw3DYz1V61B1jtHHWhIaejhfG961Qo7_OA0jJtcNULeAmKtXOYMiHLjmIlsuU1A9qs1fp76NrDdgsC4oDetTWKEoXVdiNbLS3Q3UbsJO6MNIILHHpm8uaH0RT5FSJxw"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center text-white font-bold text-headline-sm">+5</div>
+</div>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-label-md font-label-md">3.8k</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-label-md font-label-md">156</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</article>
+<!-- Post 3: Santorini -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-surface-variant/30">
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq_QIoq3JaSUlR2y_Sgv3E0jvH_xgy0iI-bxn8Mcj753yJOhNAxTnUcqo3f4r9fRpy9pN2j0P3nEdXeX7oG4NAzDkQ41inPv65uf24MrC-W4DX33-bgmVOoD-XX3nKifgAr1K73onKYmA-HsHvMNxujHtUjmCiN-8ueDgvot9pPD4SqtULxPnFTuIEJO7Zuk541nuNB8XvD_b2QlwfoTiv9xTXmkh4GXrzaL9xHMbVeY_-rFXA8yzmxdBIn3tIan0qHQrjoYeATA"/>
+<div>
+<p class="font-headline-sm text-body-lg text-on-surface leading-tight">Elena Valente</p>
+<p class="text-label-md font-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Santorini, Greece • 10h ago
+                            </p>
+</div>
+</div>
+<button class="material-symbols-outlined text-outline">more_vert</button>
+</div>
+<div class="px-4 pb-3">
+<p class="text-body-md font-body-md text-on-surface">Blue domes and white walls. This place feels like a dream I never want to wake up from. 🇬🇷💙</p>
+</div>
+<div class="mx-4 mb-4 rounded-lg overflow-hidden">
+<img alt="Santorini" class="w-full h-64 object-cover" data-alt="A vibrant, high-key photograph of Oia, Santorini, showing the iconic white-washed buildings and brilliant blue domes perched on a cliffside overlooking the Aegean Sea. The sky is a cloudless, deep azure. The lighting is intense midday sun, creating sharp, clean shadows and a high-contrast, professional travel aesthetic dominated by white and blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFs94maw1anO9dmauodtlz5lgNW3dROocDdKKuXmnZ9OaKjAs8EUgF5-myxleYzoqPPEaBNZ80SquR-lgjsjqPXPHG1ybn7aw9o6ib8YZo8MYCoSpmrAtYmi4iqrlpR6ZyhBmnK19b09okBn4tnrdeb0aWz6TgsoDvgKWrhn6PN-dV5oYJxIEz5RPlQTC2K9pOqA64yZlt9GGOcpf9AqPbxQNcKQp-lZz1XckzFG1FrrNWktJeHx0NSkWJf0b1E-3cUcxyqdjgdg"/>
+</div>
+<div class="p-4 pt-0 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-label-md font-label-md text-error">912</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-label-md font-label-md">29</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- FAB Contextual (Only for Community Tab: Create Story) -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-secondary-container text-on-secondary-container rounded-2xl shadow-lg flex items-center justify-center transition-transform hover:scale-105 active:scale-95 z-40">
+<span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container-low shadow-lg rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined">search</span>
+<span class="text-label-md font-label-md">Discover</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined">map</span>
+<span class="text-label-md font-label-md">Trips</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-label-md font-label-md">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed-dim rounded-full px-4 py-1 Active: scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-label-md font-label-md">Community</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</div>
+</nav>
+</body></html>

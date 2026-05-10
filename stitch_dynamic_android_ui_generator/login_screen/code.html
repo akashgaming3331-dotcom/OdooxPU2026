@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Login</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-error-container": "#93000a",
+                "inverse-primary": "#b6c7e9",
+                "on-background": "#191c1e",
+                "error-container": "#ffdad6",
+                "tertiary-fixed-dim": "#ffb59c",
+                "on-primary-container": "#7586a5",
+                "on-secondary-fixed-variant": "#004f51",
+                "surface-container-low": "#f2f4f6",
+                "on-surface": "#191c1e",
+                "surface-bright": "#f7f9fb",
+                "secondary": "#00696b",
+                "primary-container": "#0a1d37",
+                "on-primary-fixed-variant": "#364763",
+                "error": "#ba1a1a",
+                "surface-container-highest": "#e0e3e5",
+                "inverse-surface": "#2d3133",
+                "outline": "#75777e",
+                "secondary-fixed-dim": "#2ddbde",
+                "on-error": "#ffffff",
+                "on-tertiary-container": "#d76135",
+                "on-secondary": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "primary": "#00030a",
+                "on-secondary-container": "#006e70",
+                "tertiary": "#090100",
+                "secondary-container": "#56f5f8",
+                "on-tertiary-fixed": "#380c00",
+                "tertiary-container": "#3b0d00",
+                "on-tertiary-fixed-variant": "#822800",
+                "surface-variant": "#e0e3e5",
+                "surface-container": "#eceef0",
+                "on-surface-variant": "#44474d",
+                "surface-container-lowest": "#ffffff",
+                "surface": "#f7f9fb",
+                "on-secondary-fixed": "#002020",
+                "on-primary": "#ffffff",
+                "secondary-fixed": "#5af8fb",
+                "primary-fixed-dim": "#b6c7e9",
+                "surface-tint": "#4e5f7c",
+                "surface-container-high": "#e6e8ea",
+                "primary-fixed": "#d6e3ff",
+                "surface-dim": "#d8dadc",
+                "tertiary-fixed": "#ffdbcf",
+                "outline-variant": "#c5c6ce",
+                "on-primary-fixed": "#081c36",
+                "background": "#f7f9fb",
+                "inverse-on-surface": "#eff1f3"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "card-gap": "16px",
+                "container-padding": "20px",
+                "unit": "8px",
+                "touch-target": "48px",
+                "section-margin": "32px"
+            },
+            "fontFamily": {
+                "body-lg": ["Plus Jakarta Sans"],
+                "label-md": ["Plus Jakarta Sans"],
+                "body-md": ["Plus Jakarta Sans"],
+                "headline-sm": ["Plus Jakarta Sans"],
+                "display-lg-mobile": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+        }
+        .adventure-image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg antialiased">
+<!-- Top Navigation (Shell) - Suppressed per rules for Transactional screen, but keeping Brand Anchor TopAppBar logic if contextually required. For login, we typically hide global nav. -->
+<main class="min-h-screen flex flex-col md:flex-row">
+<!-- Visual Hero Section -->
+<section class="relative w-full md:w-1/2 lg:w-3/5 h-[353px] md:h-screen overflow-hidden">
+<img alt="Adventure Traveler" class="adventure-image" data-alt="A breathtaking view of a young traveler standing on a rugged mountain peak overlooking a vast, misty valley at dawn. The lighting is ethereal and soft, dominated by cool blue tones and warm golden sunlight breaking through the horizon. The composition captures the 'Adventure Awaits' spirit with high-key cinematic lighting and a sense of endless possibility. The visual style is premium and inspiring, echoing the reliable and organized brand identity of Traveloop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4WCxbafeCQWePiJ0qEqRp1Dw_0U_8rNk714YOpu4RK4QDtIQ2E6Kd3CXaOs3gPpgnb1m4_eRoNc0Xz_wsco_XUsswGX9_u6owrf6GVm1WecmAyhGv146VWNw0TnWtymPcPLsFS-Yvc8qe6lUpEfBNkhJs_OEFuqTH506z0jEDSvR7VVW_KYYAvAmwUjIlx4Sx__WCvD7sQ798DQgZNL0usgFXEbdOlOALGmTabk3qHS4SOYFEaJWmEVROw3nHI-vltmiSfcohYQ"/>
+<div class="absolute inset-0 hero-gradient flex flex-col justify-end p-container-padding pb-section-margin md:p-16">
+<div class="space-y-2">
+<h1 class="text-white font-display-lg text-display-lg-mobile md:text-display-lg">Adventure Awaits.</h1>
+<p class="text-white/80 font-body-lg max-w-md">Join thousands of travelers planning their next unforgettable journey with Traveloop.</p>
+</div>
+</div>
+<!-- Logo Floating -->
+<div class="absolute top-container-padding left-container-padding md:top-12 md:left-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-4xl" data-icon="explore">explore</span>
+<span class="text-white font-headline-md font-bold tracking-tight">Traveloop</span>
+</div>
+</div>
+</section>
+<!-- Login Form Section -->
+<section class="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center p-container-padding md:p-12 lg:p-24 bg-surface">
+<div class="w-full max-w-sm space-y-8">
+<header class="space-y-2">
+<h2 class="text-primary font-headline-md text-headline-md">Welcome Back</h2>
+<p class="text-on-surface-variant font-body-md">Please enter your details to sign in to your travel dashboard.</p>
+</header>
+<form class="space-y-6">
+<!-- Identity Inputs -->
+<div class="space-y-4">
+<div class="relative">
+<label class="block text-on-surface-variant font-label-md mb-2" for="username">Username or Email</label>
+<div class="group relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors" data-icon="mail">mail</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary focus:ring-0 rounded-t-xl transition-all font-body-md text-on-surface" id="username" name="username" placeholder="yourname@example.com" type="text"/>
+</div>
+</div>
+<div class="relative">
+<label class="block text-on-surface-variant font-label-md mb-2" for="password">Password</label>
+<div class="group relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors" data-icon="lock">lock</span>
+<input class="w-full pl-12 pr-12 py-3 bg-surface-container-low border-b-2 border-outline-variant focus:border-secondary focus:ring-0 rounded-t-xl transition-all font-body-md text-on-surface" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary/20" type="checkbox"/>
+<span class="text-on-surface-variant font-body-md">Remember me</span>
+</label>
+<a class="text-secondary font-label-md hover:underline" href="#">Forgot Password?</a>
+</div>
+<!-- Actions -->
+<div class="space-y-4 pt-2">
+<button class="w-full bg-[#FF6B35] text-white py-4 rounded-xl font-headline-sm shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center justify-center gap-2" type="submit">
+                            Login
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 text-outline font-label-md">OR</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<button class="w-full bg-surface-container-highest border border-outline-variant text-on-surface py-3 rounded-xl font-body-lg hover:bg-surface-container-high transition-colors flex items-center justify-center gap-3" type="button">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEEOMluGvY433__nFMdoKK6l_uJnXIgUM_wXE_d9IcmMoz2zJYZr4_PceCXM-IHnvtf-cNbdgz_VAppmTmpHMyt9I5del2t-74f0U7YyvGg_hu_SJh7cPyPr5MoENUCnyRaKj1JUGumUhDDFVbuZnKz9BDMXdMGXFUqg71RWxnBZGEhf3g8ZF3vXsNRKdNdwKul9DVUgu512zDjj40hlwluIDhSZKs5mnPbk29QY3-kISbdVQpe7E6L8XDRiWSINOwNw4xkLBBuQ"/>
+                            Sign in with Google
+                        </button>
+</div>
+</form>
+<footer class="text-center pt-8">
+<p class="text-on-surface-variant font-body-md">
+                        Don't have an account? 
+                        <a class="text-secondary font-bold hover:underline ml-1" href="#">Create Account</a>
+</p>
+</footer>
+</div>
+</section>
+</main>
+<!-- FAB (Suppressed for Transactional screen per logic) -->
+</body></html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Expense Invoice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c7e9",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "on-primary-container": "#7586a5",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#00696b",
+                        "primary-container": "#0a1d37",
+                        "on-primary-fixed-variant": "#364763",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#75777e",
+                        "secondary-fixed-dim": "#2ddbde",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d76135",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00030a",
+                        "on-secondary-container": "#006e70",
+                        "tertiary": "#090100",
+                        "secondary-container": "#56f5f8",
+                        "on-tertiary-fixed": "#380c00",
+                        "tertiary-container": "#3b0d00",
+                        "on-tertiary-fixed-variant": "#822800",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#44474d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#5af8fb",
+                        "primary-fixed-dim": "#b6c7e9",
+                        "surface-tint": "#4e5f7c",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-fixed": "#081c36",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "16px",
+                        "container-padding": "20px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "section-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface dark:bg-background shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="explore">explore</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full" data-icon="search">search</button>
+<div class="w-8 h-8 rounded-full bg-outline-variant overflow-hidden border border-outline">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2396gBX18wBhsQNSw-bSGfTe1o00-mk35FywFaE4_mwt_ksyQWlZd-OcXcxiPzwBjdw6A-Hgm1cQW7p23zg7lcyxa5M-dIg6Qh6E4_S9fCuUB2oAZylJjvNUr9IbvbF2F3YscvBhfy9OZ5Tmc7PC9HM_VnqiNh6G4uvdsRbRyRbuQfQ5pZzHfO3qjTYWSKq0fofbNP7dgQpbCa9QBNvqeOaiRYD0Oo3h_ofoy0OH-F4mmxK4axWH49fEL5xXEJyatA-Rs7qKa5w"/>
+</div>
+</div>
+</header>
+<main class="mt-20 px-container-padding max-w-4xl mx-auto">
+<!-- Back Button & Breadcrumb -->
+<nav class="flex items-center gap-2 mb-6 text-on-surface-variant font-label-md text-label-md">
+<button class="flex items-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined mr-1" data-icon="arrow_back">arrow_back</span>
+                Back to My Trips
+            </button>
+</nav>
+<!-- Hero Section: Trip Summary -->
+<div class="relative w-full h-64 rounded-xl overflow-hidden shadow-sm mb-card-gap group">
+<img class="w-full h-full object-cover brightness-75" data-alt="A wide cinematic landscape of a classic European town at sunset, featuring stone architecture and cobblestone streets under a warm golden sky. The lighting is rich and inviting, emphasizing the reliable and premium nature of the brand. High-contrast details of historical landmarks are visible against a soft, atmospheric background typical of high-end travel photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbqDe1E9bgYd-LKyR0hmi_in53Tg9caaHbgV6ftZ5fU-V9RPsHN-wPLNzif1XCQQDULT9nlYCVWc90fH5X896Jk2NvvojnevaJyOOu-klHQ8gq5Rg7JrX1AJX5B2v14x3h-zLKTIzc-kEl3xz1mkv_kvEfbK3XukmX2OUsR67ayBAlPL_usjdopJ-38e1trcbP5E1es3vP-I-oTbckyIziQyZdxEDuD3b4yBpRYKA6XQyK7X9CwVgS1zvDA8lQoTSeuQbdJpV0uQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6">
+<h2 class="text-white font-display-lg text-display-lg">Europe Adventure</h2>
+<p class="text-white/80 font-body-md text-body-md">Aug 15 - Jan 10, 2024 • 4 cities visited</p>
+</div>
+</div>
+<!-- Bento Grid: Invoice Details & Budget Insights -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-card-gap mb-card-gap">
+<!-- Invoice Meta Info -->
+<div class="md:col-span-2 bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-variant">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="font-label-md text-label-md text-outline uppercase tracking-wider mb-1">Invoice ID</p>
+<p class="font-headline-sm text-headline-sm text-primary">TRP-V09-50240</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md text-outline uppercase tracking-wider mb-1">Generated Date</p>
+<p class="font-body-md text-body-md">May 20, 2025</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="font-label-md text-label-md text-outline mb-1">Traveler Details</p>
+<p class="font-body-md text-body-md font-bold">James, Anjali, Jerry, Cristina</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md text-outline mb-1">Payment Status</p>
+<span class="inline-flex items-center px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-label-md font-label-md">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container mr-2"></span>
+                            Pending
+                        </span>
+</div>
+</div>
+</div>
+<!-- Budget Insights (Donut Chart Aspect) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-surface-variant flex flex-col items-center justify-center">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4 w-full text-left">Budget Insights</h3>
+<div class="relative w-32 h-32 mb-4">
+<!-- Simple CSS Donut -->
+<div class="w-full h-full rounded-full border-[12px] border-surface-variant"></div>
+<div class="absolute top-0 left-0 w-full h-full rounded-full border-[12px] border-secondary border-l-transparent border-t-transparent border-b-transparent rotate-45"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-label-md text-label-md text-outline">Spent</span>
+<span class="font-headline-sm text-headline-sm text-primary">85%</span>
+</div>
+</div>
+<div class="w-full space-y-2">
+<div class="flex justify-between font-body-md text-body-md">
+<span class="text-outline">Total Budget</span>
+<span class="text-primary font-bold">$25,000</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md">
+<span class="text-outline">Total Spent</span>
+<span class="text-secondary font-bold">$22,000</span>
+</div>
+</div>
+<button class="mt-4 w-full py-2 border border-secondary text-secondary rounded-lg font-label-md text-label-md hover:bg-secondary/5 transition-colors">View Full Budget</button>
+</div>
+</div>
+<!-- Itemized Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-variant overflow-hidden">
+<div class="p-6 border-b border-surface-variant">
+<h3 class="font-headline-sm text-headline-sm text-primary">Itemized Expenses</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="px-6 py-4">#</th>
+<th class="px-6 py-4">Category</th>
+<th class="px-6 py-4">Description</th>
+<th class="px-6 py-4">Qty/Details</th>
+<th class="px-6 py-4">Unit Cost</th>
+<th class="px-6 py-4 text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant font-body-md text-body-md">
+<!-- Hotel -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4 text-outline">1</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="hotel">hotel</span>
+<span>Hotel</span>
+</div>
+</td>
+<td class="px-6 py-4">Hotel Booking Paris &amp; Rome</td>
+<td class="px-6 py-4">9 nights</td>
+<td class="px-6 py-4">$1,000</td>
+<td class="px-6 py-4 text-right font-bold text-primary">$9,000</td>
+</tr>
+<!-- Travel -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4 text-outline">2</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="flight">flight</span>
+<span>Travel</span>
+</div>
+</td>
+<td class="px-6 py-4">International &amp; Regional Flights</td>
+<td class="px-6 py-4">4 Tickets</td>
+<td class="px-6 py-4">$3,000</td>
+<td class="px-6 py-4 text-right font-bold text-primary">$12,000</td>
+</tr>
+<!-- Dining -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4 text-outline">3</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="restaurant">restaurant</span>
+<span>Dining</span>
+</div>
+</td>
+<td class="px-6 py-4">Group Dinner Reservations</td>
+<td class="px-6 py-4">3 events</td>
+<td class="px-6 py-4">$333.33</td>
+<td class="px-6 py-4 text-right font-bold text-primary">$1,000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Totals Footer -->
+<div class="bg-surface-container p-6 flex flex-col items-end space-y-2 border-t border-surface-variant">
+<div class="flex justify-between w-full max-w-xs font-body-md text-body-md">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="text-primary font-bold">$21,000</span>
+</div>
+<div class="flex justify-between w-full max-w-xs font-body-md text-body-md">
+<span class="text-on-surface-variant">Tax(5%)</span>
+<span class="text-primary font-bold">$1,050</span>
+</div>
+<div class="flex justify-between w-full max-w-xs font-body-md text-body-md">
+<span class="text-on-surface-variant">Discount</span>
+<span class="text-on-error-container font-bold">-$50</span>
+</div>
+<div class="flex justify-between w-full max-w-xs border-t border-outline-variant pt-4 mt-2">
+<span class="font-headline-md text-headline-md text-primary">Grand Total</span>
+<span class="font-headline-md text-headline-md text-secondary">$22,000</span>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Actions (For Web View) -->
+<div class="mt-section-margin flex flex-col sm:flex-row gap-4 justify-between items-center bg-white p-6 rounded-xl shadow-lg border border-surface-variant">
+<div class="flex gap-4">
+<button class="px-6 py-3 border border-secondary text-secondary font-label-md text-label-md rounded-lg flex items-center gap-2 hover:bg-secondary/5 transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+                    Download Invoice
+                </button>
+<button class="px-6 py-3 border border-outline text-on-surface-variant font-label-md text-label-md rounded-lg flex items-center gap-2 hover:bg-surface-container transition-transform active:scale-95">
+<span class="material-symbols-outlined" data-icon="picture_as_pdf">picture_as_pdf</span>
+                    Export as PDF
+                </button>
+</div>
+<button class="w-full sm:w-auto px-10 py-3 bg-secondary text-white font-label-md text-label-md rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-transform active:scale-95 shadow-md">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+                Mark as Paid
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container-low rounded-t-xl shadow-lg md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-md font-label-md">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-label-md font-label-md">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-md font-label-md">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Community</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed-dim rounded-full px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</a>
+</nav>
+</body></html>

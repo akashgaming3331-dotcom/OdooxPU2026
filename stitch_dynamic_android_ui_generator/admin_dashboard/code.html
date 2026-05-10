@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-gradient-purple {
+            background: linear-gradient(180deg, rgba(86, 245, 248, 0.2) 0%, rgba(86, 245, 248, 0) 100%);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "inverse-primary": "#b6c7e9",
+                      "on-background": "#191c1e",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#ffb59c",
+                      "on-primary-container": "#7586a5",
+                      "on-secondary-fixed-variant": "#004f51",
+                      "surface-container-low": "#f2f4f6",
+                      "on-surface": "#191c1e",
+                      "surface-bright": "#f7f9fb",
+                      "secondary": "#00696b",
+                      "primary-container": "#0a1d37",
+                      "on-primary-fixed-variant": "#364763",
+                      "error": "#ba1a1a",
+                      "surface-container-highest": "#e0e3e5",
+                      "inverse-surface": "#2d3133",
+                      "outline": "#75777e",
+                      "secondary-fixed-dim": "#2ddbde",
+                      "on-error": "#ffffff",
+                      "on-tertiary-container": "#d76135",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#00030a",
+                      "on-secondary-container": "#006e70",
+                      "tertiary": "#090100",
+                      "secondary-container": "#56f5f8",
+                      "on-tertiary-fixed": "#380c00",
+                      "tertiary-container": "#3b0d00",
+                      "on-tertiary-fixed-variant": "#822800",
+                      "surface-variant": "#e0e3e5",
+                      "surface-container": "#eceef0",
+                      "on-surface-variant": "#44474d",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "on-secondary-fixed": "#002020",
+                      "on-primary": "#ffffff",
+                      "secondary-fixed": "#5af8fb",
+                      "primary-fixed-dim": "#b6c7e9",
+                      "surface-tint": "#4e5f7c",
+                      "surface-container-high": "#e6e8ea",
+                      "primary-fixed": "#d6e3ff",
+                      "surface-dim": "#d8dadc",
+                      "tertiary-fixed": "#ffdbcf",
+                      "outline-variant": "#c5c6ce",
+                      "on-primary-fixed": "#081c36",
+                      "background": "#f7f9fb",
+                      "inverse-on-surface": "#eff1f3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "card-gap": "16px",
+                      "container-padding": "20px",
+                      "unit": "8px",
+                      "touch-target": "48px",
+                      "section-margin": "32px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Plus Jakarta Sans"],
+                      "label-md": ["Plus Jakarta Sans"],
+                      "body-md": ["Plus Jakarta Sans"],
+                      "headline-sm": ["Plus Jakarta Sans"],
+                      "display-lg-mobile": ["Plus Jakarta Sans"],
+                      "headline-md": ["Plus Jakarta Sans"],
+                      "display-lg": ["Plus Jakarta Sans"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="explore">explore</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary">Traveloop</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-6 px-4">
+<span class="text-label-md font-label-md text-primary font-bold">Admin Dashboard</span>
+<span class="text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 rounded cursor-pointer">Logs</span>
+<span class="text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors px-2 py-1 rounded cursor-pointer">System</span>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant scale-95 active:scale-90 transition-transform">
+<img alt="Admin" data-alt="A professional headshot of a corporate administrator in a bright, modern office setting. The lighting is soft and even, highlighting a confident yet approachable expression. The background is a blurred high-end tech environment with glass partitions and minimalist furniture, maintaining a premium light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXKKqT4VsPF6bV01Yz45j3azhyY9I639X8vSeVH5NU6cnlzF6twk0GqZQvwIs9JmmsVtOkSn5U1VMxCHbXorRR-gQWrYgkMxBywxqs1voT619bEnl5OWS0ovVm5MxdLLM1-xkpVOl5H0CR-lYtH_RafmNV0YOuVfRF4aVuEoBNIx5M9XdfXkiK6MostL_YLLf_uIkyVklWDSDlVWdObHUxNw9jNr4Jkwe0inq3LEAlvzSgSxs3hPLAXnF9tiFTxWBEcEq92JpJew"/>
+</div>
+</div>
+</header>
+<main class="pt-20 px-container-padding max-w-7xl mx-auto space-y-section-margin">
+<!-- Search and Global Actions -->
+<section class="flex flex-col md:flex-row gap-4 items-center justify-between">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface border-none rounded-xl shadow-sm focus:ring-2 focus:ring-secondary text-body-md font-body-md" placeholder="Search analytics, users, or regions..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-secondary text-on-secondary px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span>
+                    Export PDF
+                </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-2 bg-surface text-on-surface-variant border border-outline-variant px-6 py-2.5 rounded-full font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                    Filter
+                </button>
+</div>
+</section>
+<!-- Stat Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-card-gap">
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-surface-variant flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">New Users</span>
+<span class="material-symbols-outlined text-secondary" data-icon="person_add">person_add</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-display-lg font-display-lg text-primary">12,482</span>
+<span class="text-secondary font-label-md text-label-md mb-1.5">+12%</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-surface-variant flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Trips Created</span>
+<span class="material-symbols-outlined text-secondary" data-icon="travel_explore">travel_explore</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-display-lg font-display-lg text-primary">8,901</span>
+<span class="text-secondary font-label-md text-label-md mb-1.5">+8.4%</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/2 rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl shadow-sm border border-surface-variant flex flex-col gap-2 sm:col-span-2 lg:col-span-1">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Revenue</span>
+<span class="material-symbols-outlined text-secondary" data-icon="payments">payments</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-display-lg font-display-lg text-primary">$452.1k</span>
+<span class="text-secondary font-label-md text-label-md mb-1.5">+21.3%</span>
+</div>
+<div class="w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-2/3 rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Main Analytics Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-card-gap">
+<!-- User Activity Trends (Line Chart Placeholder) -->
+<div class="lg:col-span-8 bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-variant">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">User Activity Trends</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Daily active users vs bookings</p>
+</div>
+<select class="bg-surface-container border-none text-label-md font-label-md rounded-lg px-3 py-1.5">
+<option>Last 30 Days</option>
+<option>Last 6 Months</option>
+</select>
+</div>
+<div class="relative h-64 w-full flex items-end justify-between gap-1 chart-gradient-purple rounded-xl p-4">
+<!-- Faux Line Chart using SVGs -->
+<svg class="absolute inset-0 w-full h-full px-4" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q10,75 20,60 T40,40 T60,50 T80,20 T100,30" fill="none" stroke="#00696b" stroke-width="2"></path>
+<path d="M0,80 Q10,75 20,60 T40,40 T60,50 T80,20 T100,30 V100 H0 Z" fill="url(#grad1)" opacity="0.1"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#00696b;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#00696b;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="flex w-full justify-between items-end px-2 z-10">
+<span class="text-[10px] text-outline">Day 1</span>
+<span class="text-[10px] text-outline">Day 10</span>
+<span class="text-[10px] text-outline">Day 20</span>
+<span class="text-[10px] text-outline">Day 30</span>
+</div>
+</div>
+</div>
+<!-- Regional Market (Pie Chart Placeholder) -->
+<div class="lg:col-span-4 bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-variant flex flex-col">
+<h3 class="text-headline-sm font-headline-sm text-primary mb-1">Regional Market</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">Distribution by continent</p>
+<div class="flex-1 flex flex-col items-center justify-center py-4">
+<div class="relative w-40 h-40 rounded-full border-[12px] border-surface-container flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border-[12px] border-secondary border-l-transparent border-b-transparent rotate-45"></div>
+<div class="text-center">
+<span class="text-headline-md font-headline-md block">42%</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase">Europe</span>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-x-8 gap-y-3 w-full">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="text-label-md font-label-md text-on-surface-variant">Europe (42%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="text-label-md font-label-md text-on-surface-variant">Asia (28%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-on-secondary-fixed-variant"></div>
+<span class="text-label-md font-label-md text-on-surface-variant">America (20%)</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+<span class="text-label-md font-label-md text-on-surface-variant">Other (10%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Growing Cities -->
+<div class="lg:col-span-12 bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-surface-variant">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-headline-sm font-headline-sm text-primary">Top Growing Cities</h3>
+<button class="text-secondary font-label-md text-label-md hover:underline transition-all">View All Regions</button>
+</div>
+<div class="overflow-x-auto hide-scrollbar">
+<div class="flex gap-card-gap pb-2 min-w-max">
+<div class="w-64 bg-surface p-4 rounded-xl border border-surface-variant">
+<div class="w-full h-32 rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A cinematic panoramic view of Tokyo's Shinjuku district at sunset. The sky is a vibrant blend of orange and purple, reflecting off the glass facades of towering skyscrapers. The streets below are alive with glowing neon signs and a steady stream of car lights, creating a high-energy, modern urban atmosphere in a premium photographic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW45h-yCW3H-5yrvN5WDbpaKGZbuEI5ytNONhFvQyT901Zx6GvLxugQj6X6H81M3616GvQD5PAB3IUrk_n0HWlVBThMs30FTUimk5_qa4wnY1_TCKfWacR6AU_8PJGUBYtexm3WQkmmOd2RMxQvoZrP5LCMTwFUP-KoG7V65BIOpWp4psCSBIaB4DEtgSPyeHyf1R7P2rNSh8UyoFrrgO8VbE0vgS1q999jqDHLi3cYmz52_zycHto7rjH6k7r4sN9iLMj5FuGiQ"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Tokyo, JP</h4>
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md text-on-surface-variant">Growth Rate</span>
+<span class="text-secondary font-bold text-label-md">+24.5%</span>
+</div>
+</div>
+<div class="w-64 bg-surface p-4 rounded-xl border border-surface-variant">
+<div class="w-full h-32 rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A beautiful wide shot of Lisbon's historic Alfama district. The image features red-tiled roofs cascading down towards the sparkling blue Tagus River under a clear midday sun. The architecture is characterized by colorful pastel buildings and steep cobbled streets, exuding a warm, Mediterranean charm and a serene, inviting travel mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBcpaAM_nIM-hElfvvYXt3qQSFN7E1RnuU5Z94BVn6oPk8hDZWVoQ3_X8OPhqYTK-hMNv0tUzRHxcemkZnKrnHfjEGD9qKlxmHuOH4g_DGWwRevi30ey04u3VFNfbAEIOUOLt3Yi0EyFY-0BS7Q6_huuMo14AOSZOAk4VAQwcRfivNOqz-2js1xFSAbFRv94owcaiEkOoDGJ8x3bmORRek87Sl1WugecUqs0fR_2fabXpdwCzE8RGbTZGn1wHpSM2wpVTZb1tChQ"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Lisbon, PT</h4>
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md text-on-surface-variant">Growth Rate</span>
+<span class="text-secondary font-bold text-label-md">+18.2%</span>
+</div>
+</div>
+<div class="w-64 bg-surface p-4 rounded-xl border border-surface-variant">
+<div class="w-full h-32 rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sleek, modern architectural view of Seoul's Dongdaemun Design Plaza at night. The curved, metallic surfaces of the building are illuminated by soft blue and white ambient lighting. The surrounding area features modern urban landscaping and high-tech public spaces, capturing the essence of South Korea's advanced technology and contemporary design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW2Ad7B9VdomwvO17I7kwxIGpQZQHTVYTyZAY4uPfn7ORL0XpGLx3vnQBhOFGAtGChllFNBgUlzMzWycL7l8qErus6T0EmmiAjcjZNpKTIp58ulOR3KIu9SUu8Ml7JuX9sgL0jiAN4-u9-RCyDbdg3a44USHkoXrmB-r-BVqAjtNqcsMIZX10dg4MDDI_-AneSXgUbQ2GbWyM7R5toOo6XEsLHuc_579SXWQWDbG5FZVZL36wR9pZzKrHlqBZXcfomjv6MlsJwtg"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Seoul, KR</h4>
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md text-on-surface-variant">Growth Rate</span>
+<span class="text-secondary font-bold text-label-md">+16.9%</span>
+</div>
+</div>
+<div class="w-64 bg-surface p-4 rounded-xl border border-surface-variant">
+<div class="w-full h-32 rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An aerial perspective of the Sydney Opera House and Harbor Bridge on a bright, sunny day. The deep blue water of the harbor is dotted with sailboats and ferries. The pristine white sails of the Opera House stand out against the urban skyline, conveying a sense of adventure, world-class travel, and iconic architectural beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpuppVG0BZByjJ9deAbmM_m2_jGdDMGHFUte6k0mKRIYTlSH7tDZlEBI3zwXjF0f5EmjD7itParc2c9kVqc6zRfk-W6A4BGVhs8FVselCsbmlffv98NL0cbbynIBg4vC7wEPD60DfTSndPIrY5ck-bywN2LlsQQ84d2JRRSqZ2auD5fxjz2wugS_wRkPHVRnCvb9qQvsz0Wa1M5wXxsIQ5leonQe76w_nA-vimiUq5Zsg11z7lnoO0NMKPcuoy4eJWNMW_mcipTA"/>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-1">Sydney, AU</h4>
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md text-on-surface-variant">Growth Rate</span>
+<span class="text-secondary font-bold text-label-md">+14.1%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container rounded-t-xl shadow-lg">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-md font-label-md">Discover</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-label-md font-label-md">Trips</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-md font-label-md">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Community</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 Active: scale-95 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</div>
+</nav>
+</body></html>

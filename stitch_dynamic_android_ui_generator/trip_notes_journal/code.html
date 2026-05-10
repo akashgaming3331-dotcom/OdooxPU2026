@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Trip Notes &amp; Journal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c7e9",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "on-primary-container": "#7586a5",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#00696b",
+                        "primary-container": "#0a1d37",
+                        "on-primary-fixed-variant": "#364763",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#75777e",
+                        "secondary-fixed-dim": "#2ddbde",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d76135",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00030a",
+                        "on-secondary-container": "#006e70",
+                        "tertiary": "#090100",
+                        "secondary-container": "#56f5f8",
+                        "on-tertiary-fixed": "#380c00",
+                        "tertiary-container": "#3b0d00",
+                        "on-tertiary-fixed-variant": "#822800",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#44474d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#5af8fb",
+                        "primary-fixed-dim": "#b6c7e9",
+                        "surface-tint": "#4e5f7c",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-fixed": "#081c36",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "16px",
+                        "container-padding": "20px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "section-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-thread {
+            position: absolute;
+            left: 11px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #0a1d37;
+            opacity: 0.15;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7f9fb;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface dark:bg-background shadow-sm">
+<div class="flex items-center gap-2 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="explore">explore</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img alt="User Profile" data-alt="A professional studio portrait of a friendly young man with a slight smile, set against a clean, softly lit white background. The lighting is bright and modern, creating a welcoming and trustworthy persona consistent with a premium travel planning application. The aesthetic is high-key and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9ONepc20V3BFrgUL43QNqAM5ojo-phBJPEbHYfWtaGf_-6vxTTFMq382xWVLGGG2JjhWC9-VP9xUWzUaC5ZXZtmqxb6L1Le_KZ0tCuNkTTozT4kRjhly3xfWnBRS_BD4PLRT0jOLK-UFoUcjGgyjP5ZvdCla9BDDjeZo6k2g8OQXCvWFA0z_z2DVUggd6ANBGOamt-ZfSkXwdWwYcK4hSQR0oM0bS8WmK6Iz-xAy-MPAc-7kdUzIbp9RAgJuJWosoqS4rXnf8JA"/>
+</div>
+</div>
+</header>
+<main class="mt-touch-target pb-32 min-h-screen px-container-padding">
+<!-- Hero Search & Filter Section -->
+<section class="pt-section-margin">
+<div class="relative w-full h-48 rounded-xl overflow-hidden mb-6 shadow-sm">
+<img alt="Rome" class="w-full h-full object-cover" data-alt="A cinematic low-angle view of the Roman Colosseum at sunset, with golden sunlight bathing the ancient stone arches. The sky is a gradient of soft orange and dusky blue. The scene evokes a sense of timeless history and organized adventure, matching the brand's reliable yet inspiring personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3hvY54l38oN9WHJiZS8DTjklbzkXp1B1L5m8xT7SdJoLhvi7oXAELKVH69t_j62QP_Mglp4fQ9jfyzvkV9a0l-_fw7LRe-puYQmB7mC4YeF9suul_tnn8dngGSuosgt7cQG-wV8WZ5EcxqmIQIjcz3s3esrfrg_wL8wWxfZS3Lti7uZa_vIB6tVo_w_Zo66wfRmDSH1AzmsmZdQ3AucXtjDJLCWXFMJV7PDnYv7JfKat08-yFsnDo-f8m6Herobk2LjKzSTayyg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+<h2 class="text-white font-display-lg text-display-lg">Trip to Rome</h2>
+<p class="text-white/90 font-body-md text-body-md">May 20, 2024 • Italy Adventure</p>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="relative mb-6">
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-xl px-4 h-12 shadow-sm focus-within:ring-2 focus-within:ring-secondary transition-all">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md font-body-md px-3 text-on-surface" placeholder="Search notes..." type="text"/>
+<span class="material-symbols-outlined text-outline" data-icon="tune">tune</span>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex gap-2 overflow-x-auto pb-2 mb-6 no-scrollbar">
+<button class="bg-primary-container text-on-primary-fixed-variant px-5 py-2 rounded-full text-label-md font-label-md whitespace-nowrap shadow-sm">All</button>
+<button class="bg-surface-container text-on-surface-variant px-5 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">by Day</button>
+<button class="bg-surface-container text-on-surface-variant px-5 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">by Stop</button>
+<button class="bg-surface-container text-on-surface-variant px-5 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-high transition-colors">Documents</button>
+</div>
+</section>
+<!-- Timeline Content -->
+<section class="space-y-8 relative">
+<div class="timeline-thread"></div>
+<!-- Note 1: Hotel Check-in -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-2 h-6 w-6 rounded-full bg-secondary flex items-center justify-center z-10 shadow-sm">
+<span class="material-symbols-outlined text-white text-[16px]" data-icon="hotel" style="font-variation-settings: 'FILL' 1;">hotel</span>
+</div>
+<div class="glass-card rounded-xl p-4 shadow-sm">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Hotel Check-in - Rome Stop</h3>
+<p class="text-label-md font-label-md text-outline">Check-in after 2pm, room 302, breakfast included (7-10am)</p>
+</div>
+<span class="text-label-md font-label-md text-secondary font-bold">14:00</span>
+</div>
+<div class="rounded-lg overflow-hidden h-32 mb-2">
+<img alt="Hotel Interior" class="w-full h-full object-cover" data-alt="A high-end, contemporary boutique hotel lobby in Rome, featuring elegant marble floors, minimalist velvet seating in deep teal, and warm, diffused ambient lighting. Large windows show a glimpse of a cobblestone street outside. The aesthetic is clean, premium, and calm, reflecting an organized and delightful travel experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrai2jj0FCTU4txC__5oPzrTm3m4qdyyRTWpX2h4mA7WhRFDi5i7ZRBnjckZFW49yqyWDMmM9PBcg-3MtyWjDUV2QEOeCOT2YU3_znDoS-Lpqdl1M4EBV0I_0p2W1G8LXuleh5eZDXlIrku2BiUBIaRj_fjsoybCZWHtFk9Hd2UVt8VB7kRKxnjDKAtwzaetPKu5oQZRmHxXMZH-wo0LjSgaLfBi017nhM0ZZuSqTtkxKzvN2OyZbyHoaH0kycJn0899CdwY4d1w"/>
+</div>
+<div class="flex items-center gap-2 text-label-md font-label-md text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="location_on">location_on</span>
+<span>Hotel Quirinale, Rome</span>
+</div>
+</div>
+</div>
+<!-- Note 2: Dinner Reservation -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-2 h-6 w-6 rounded-full bg-on-tertiary-container flex items-center justify-center z-10 shadow-sm">
+<span class="material-symbols-outlined text-white text-[16px]" data-icon="restaurant" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Dinner Reservation</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Table for 4 at La Pergola. Reservation under "Traveloop Admin". Dress code: Smart Casual.</p>
+</div>
+<span class="text-label-md font-label-md text-on-tertiary-container font-bold">20:30</span>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/30 flex gap-4">
+<button class="flex items-center gap-1 text-label-md font-label-md text-secondary hover:underline transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="call">call</span> Call
+                        </button>
+<button class="flex items-center gap-1 text-label-md font-label-md text-secondary hover:underline transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="directions">directions</span> Get Directions
+                        </button>
+</div>
+</div>
+</div>
+<!-- Note 3: Checklist -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-2 h-6 w-6 rounded-full bg-primary flex items-center justify-center z-10 shadow-sm">
+<span class="material-symbols-outlined text-white text-[16px]" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+</div>
+<div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-secondary">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Souvenirs to buy</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+<span class="text-body-md font-body-md text-outline line-through">Artisan Leather Wallet (Via del Corso)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+<span class="text-body-md font-body-md text-on-surface">Murano Glass Ornaments</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary transition-all" type="checkbox"/>
+<span class="text-body-md font-body-md text-on-surface">Local Ground Espresso</span>
+</label>
+</div>
+<div class="mt-4 h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-1/3 transition-all duration-500"></div>
+</div>
+<p class="text-[10px] font-label-md text-outline mt-2 uppercase tracking-wider">1 of 3 items purchased</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 h-14 w-14 bg-on-tertiary-container text-white rounded-full shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container-low rounded-t-xl shadow-lg">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors Active: scale-95 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-md font-label-md">Discover</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors Active: scale-95 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-label-md font-label-md">Trips</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed-dim rounded-full px-4 py-1 Active: scale-95 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="text-label-md font-label-md">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors Active: scale-95 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Community</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors Active: scale-95 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</div>
+</nav>
+</body></html>

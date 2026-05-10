@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Packing Checklist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c7e9",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "on-primary-container": "#7586a5",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#00696b",
+                        "primary-container": "#0a1d37",
+                        "on-primary-fixed-variant": "#364763",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#75777e",
+                        "secondary-fixed-dim": "#2ddbde",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d76135",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00030a",
+                        "on-secondary-container": "#006e70",
+                        "tertiary": "#090100",
+                        "secondary-container": "#56f5f8",
+                        "on-tertiary-fixed": "#380c00",
+                        "tertiary-container": "#3b0d00",
+                        "on-tertiary-fixed-variant": "#822800",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#44474d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#5af8fb",
+                        "primary-fixed-dim": "#b6c7e9",
+                        "surface-tint": "#4e5f7c",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-fixed": "#081c36",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "accent-orange": "#FF8C42"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "16px",
+                        "container-padding": "20px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "section-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .progress-bar-fill {
+            transition: width 0.5s ease-in-out;
+        }
+        .timeline-thread {
+            position: relative;
+        }
+        .timeline-thread::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 8px;
+            bottom: -24px;
+            width: 2px;
+            background: #00696b;
+        }
+        .last-thread::before {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top AppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface dark:bg-background shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="explore">explore</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</h1>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border-2 border-surface-container-highest">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional and friendly headshot of a person with warm lighting in a modern, minimalist studio setting. The lighting is soft and diffused, highlighting clear skin and a gentle smile. The background is a clean, out-of-focus neutral grey, maintaining a high-end, professional UI aesthetic that complements a premium travel application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqnpjfiUF-muOk4CJp8sKHHjYahOz1G7Fk_gl8pVtJ5zXRvpWHiT5RzAihBCy57OKYtvGp0L8cdSJPvrOKHzb6HK1pfvG2YxFYsedKrtSknxDhdMePioG3b5c5Fi3g-6LO5I3ErrYgLvwTEZjKOXAqjVl6xPBH36XkPqyT-7YlhoOqcebOva3Vak8IatbEg1Jzj2gPnZHFLj-4llVSHqK6THy2bDwf05qA-lap4P82B1qcXt-zwLUGVDPMV_uWR6Vgjo4QkCP8Qg"/>
+</div>
+</header>
+<main class="pt-20 px-container-padding max-w-2xl mx-auto">
+<!-- Screen Title & Progress Header -->
+<section class="mb-section-margin">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Packing Checklist</h2>
+<p class="text-body-md text-on-surface-variant">Paris &amp; Rome Adventure • 12 Days</p>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm text-secondary">66%</span>
+<p class="text-label-md font-label-md text-on-surface-variant">8/12 Items</p>
+</div>
+</div>
+<!-- Progress Indicator -->
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary progress-bar-fill" style="width: 66.6%"></div>
+</div>
+</section>
+<!-- Search & Quick Add -->
+<div class="mb-section-margin flex gap-2">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border-none rounded-xl shadow-sm focus:ring-2 focus:ring-secondary text-body-md" placeholder="Add new item or search..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container p-3 rounded-xl shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+<!-- Checklist Categories -->
+<div class="space-y-8">
+<!-- Category: Documents -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="description">description</span>
+<h3 class="text-label-md font-label-md uppercase tracking-wider text-on-surface-variant">Documents</h3>
+</div>
+<div class="space-y-3 pl-2">
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary line-through opacity-50">Passport &amp; Visas</span>
+</div>
+</label>
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary line-through opacity-50">Flight Tickets (Printed)</span>
+</div>
+</label>
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary">Travel Insurance</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="info">info</span>
+</label>
+</div>
+</section>
+<!-- Category: Clothing -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="checkroom">checkroom</span>
+<h3 class="text-label-md font-label-md uppercase tracking-wider text-on-surface-variant">Clothing</h3>
+</div>
+<div class="space-y-3 pl-2">
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary line-through opacity-50">Comfortable walking shoes</span>
+</div>
+</label>
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary">Casual Shirts (x7)</span>
+</div>
+</label>
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary">Light jacket / windbreaker</span>
+</div>
+</label>
+</div>
+</section>
+<!-- Category: Electronics -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="devices">devices</span>
+<h3 class="text-label-md font-label-md uppercase tracking-wider text-on-surface-variant">Electronics</h3>
+</div>
+<div class="space-y-3 pl-2">
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary line-through opacity-50">Phone charger &amp; Power bank</span>
+</div>
+</label>
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary line-through opacity-50">Universal power adapter</span>
+</div>
+</label>
+<label class="flex items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:border-secondary transition-colors cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary mr-4" type="checkbox"/>
+<div class="flex-grow">
+<span class="text-body-lg font-body-lg text-primary">Noise-canceling headphones</span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Trip Tip Card -->
+<section class="mt-section-margin mb-8">
+<div class="bg-secondary-container rounded-2xl p-container-padding flex gap-4 items-start shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined text-[80px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<div class="bg-on-secondary-container text-white p-2 rounded-lg shrink-0">
+<span class="material-symbols-outlined" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div>
+<h4 class="text-label-md font-label-md text-on-secondary-container mb-1">TRIP TIP</h4>
+<p class="text-body-md text-on-secondary-container font-semibold leading-snug">
+                        Europe uses Type C/E/F plugs. Your universal adapter covers these, but carry a small power strip to charge multiple devices at once!
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB: Create/Book Action (Contextual Suppression would hide this on deep screens, but here it's "Add Custom Section") -->
+<button class="fixed bottom-24 right-container-padding bg-accent-orange text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined" data-icon="playlist_add">playlist_add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container-low rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-md font-label-md">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-label-md font-label-md">Trips</span>
+</a>
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed-dim rounded-full px-4 py-1 Active: scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-md font-label-md">Plan</span>
+</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Community</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Discover Your Next Adventure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c7e9",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "on-primary-container": "#7586a5",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#00696b",
+                        "primary-container": "#0a1d37",
+                        "on-primary-fixed-variant": "#364763",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#75777e",
+                        "secondary-fixed-dim": "#2ddbde",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d76135",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00030a",
+                        "on-secondary-container": "#006e70",
+                        "tertiary": "#090100",
+                        "secondary-container": "#56f5f8",
+                        "on-tertiary-fixed": "#380c00",
+                        "tertiary-container": "#3b0d00",
+                        "on-tertiary-fixed-variant": "#822800",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#44474d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#5af8fb",
+                        "primary-fixed-dim": "#b6c7e9",
+                        "surface-tint": "#4e5f7c",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-fixed": "#081c36",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "16px",
+                        "container-padding": "20px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "section-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Floating Action Button specific styles */
+        .fab-container {
+            filter: drop-shadow(0 4px 12px rgba(0, 105, 107, 0.3));
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface shadow-sm dark:bg-background">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="explore">explore</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</h1>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-primary dark:text-primary-fixed font-bold text-label-md font-label-md" href="#">Discover</a>
+<a class="text-on-surface-variant dark:text-outline hover:bg-surface-container-high transition-colors text-label-md font-label-md" href="#">Trips</a>
+<a class="text-on-surface-variant dark:text-outline hover:bg-surface-container-high transition-colors text-label-md font-label-md" href="#">Plan</a>
+<a class="text-on-surface-variant dark:text-outline hover:bg-surface-container-high transition-colors text-label-md font-label-md" href="#">Community</a>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant scale-95 active:scale-90 transition-transform cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9SEKTlKcmlt6mqDdoun5YGlCTUgtJWqmFU5mXO8qXtXeCVAbpzCcaEDCDzdCsa33WxH7GnKqna2eLBULg75Weoqtt9GMmw1OOuX2RVq72Zytkw1GKDjejBoQv8CeZPsGmV-F9-262P62wMGlDJ6hTyInn67Ar9kU3T-1S5RvJ-0PBBK-zI51Ac-Ct0SoBNaYhI88aX85P1k9rmW8sRLQNnz22hBgkTKi6ATafZnfBEcLqDysM9mYEJRsZq1Jkh2rW416TfFW7aA"/>
+</div>
+</header>
+<main class="mt-12 pt-4 px-container-padding max-w-screen-xl mx-auto">
+<!-- Hero Banner Section -->
+<section class="relative h-[240px] md:h-[400px] w-full rounded-xl overflow-hidden mb-section-margin shadow-lg">
+<img class="w-full h-full object-cover" data-alt="A breathtaking wide-angle shot of a serene mountain lake at sunrise, with glowing golden light reflecting off the still water. The scene is majestic and inspires a sense of wanderlust and high-end travel. The color palette is composed of soft blues, deep forest greens, and vibrant warm oranges from the morning sun. The overall visual style is crisp, clean, and modern light-mode compliant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmadmqDxGJk-mI_zfEPoLHT_2rXQtwwuIb7gn2FuIdNf9gsPuBumO2rtaEbG3MRE-__pRoKx6-7292e5sKVr44yZZe21ns3m7RpFxVmOHyTg43bS2k04y5C742BodUfMTc3KaGO-PQNcEZ6Rg_y7NyR1nZsNAuEmrvi9cpQTx_nmZpDfroq0gsaZbxe09-eFRYL1l6zSeneK6o7ciYJxKC1F9cHW8xUaSmw4wk4IIV6fZfoOy55wDDyILumIqw8USnQLz9-RO9XA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex flex-col justify-end p-6 md:p-12">
+<h2 class="text-white font-display-lg text-display-lg-mobile md:text-display-lg mb-2">Adventure Awaits</h2>
+<p class="text-white/90 font-body-lg text-body-lg max-w-md">Discover curated experiences and plan your dream escape with ease.</p>
+</div>
+</section>
+<!-- Search & Filters -->
+<section class="mb-section-margin">
+<div class="flex flex-col gap-4">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container rounded-xl border-none focus:ring-2 focus:ring-secondary text-body-lg font-body-lg placeholder:text-outline transition-all" placeholder="Where do you want to go?" type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar">
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full flex items-center gap-2 text-label-md font-label-md whitespace-nowrap active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+                        Filter
+                    </button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Sort by</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Budget</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Date</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-full text-label-md font-label-md whitespace-nowrap hover:bg-surface-container-highest transition-colors">Activities</button>
+</div>
+</div>
+</section>
+<!-- Top Regions Horizontal Scroll -->
+<section class="mb-section-margin">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Top Regions</h3>
+<button class="text-secondary text-label-md font-label-md hover:underline">View All</button>
+</div>
+<div class="flex gap-card-gap overflow-x-auto hide-scrollbar pb-4">
+<!-- Region Card 1 -->
+<div class="flex-shrink-0 w-40 md:w-56 group cursor-pointer">
+<div class="h-56 md:h-72 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A vibrant street scene in Venice, Italy, showing colorful buildings reflecting in the calm canal water during the golden hour. The lighting is warm and inviting, highlighting the architectural details of the historic city. The aesthetic is premium and reliable, perfectly capturing the essence of European exploration with a sophisticated color palette of ochre and teal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt9wQXxTAKMHC1gRAMb9LKGq34gShGvDYjIFaY8kp_yV7GFNo_0jRQR2HZllje9jIs0DBxjJp1cfFp85bYpmTJu7r6r23KUWEPbJAY-fJYO1TL_xMtc-aXTg5_UuA8_x-_Nj9RBC_dEf4psllbLSPq5YQTfCwZh7jxXYdGy0eqf3O6ThGbkbI-6RevNf-KPhzMiaPpq7UiN_XNTWbL6INy07twGfTzLzH0qf5kaFJazSzNSkz7PBFxHMgB0ELW9Crk1yrcnKVYAg"/>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Europe</span>
+<p class="text-label-md font-label-md text-outline">124 Destinations</p>
+</div>
+<!-- Region Card 2 -->
+<div class="flex-shrink-0 w-40 md:w-56 group cursor-pointer">
+<div class="h-56 md:h-72 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A lush tropical landscape in Southeast Asia featuring emerald green rice terraces and misty mountain peaks in the background. The lighting is soft and diffused, creating a serene and Inspiring atmosphere. The visual style is modern and clean, emphasizing nature's vibrancy with deep greens and cool misty greys, aligned with the corporate modern travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9nWAfu4bvG3JRSTY4Npcfj0QIQH5x5v361Fwp_tLdYHfnqFJGW9xsMPDyDuNzHA-pmOxYwJW5vd0Sx9CINcAWCHwrdgfRbQsmKYRnVzIjvCtmt8pubHDyx-thw6aYuhS_ebnyO3sR6dX8VHRZN9eBP3p4JhOBGa8bvSj1RuJ18Zm9Rg2ll01hCy2vwmEY0GsatSvdMwpjxaw2oJnni6xDm7Ng7HCUcitCt3e7XGRigEbDEWhrDHXhFfvDZFJYCPCJUrZ676ca5w"/>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Asia</span>
+<p class="text-label-md font-label-md text-outline">89 Destinations</p>
+</div>
+<!-- Region Card 3 -->
+<div class="flex-shrink-0 w-40 md:w-56 group cursor-pointer">
+<div class="h-56 md:h-72 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An expansive view of the Hawaiian coastline with volcanic rock formations and bright turquoise ocean waves crashing against the shore. The sun is bright and high, providing high-key lighting that makes the blues and oranges of the landscape pop. The mood is adventurous and organized, fitting a premium travel planning application's visual language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxyFvSPJRf7cJ2Piqq-Uw2eG1kks6eyMT6FUdbKizTo1Lks2QJN5sYRAhCcf-Ou_-7tO7T0z1FP3Mvc8VP2XNkyOjQWmuBh5-3xKaz8FxBJq7EBh1XSVtm2bJEe-UN-SssbuwGQcFBRAy8sdHNjRtAHQel450rchhfq2hYRERXGCjCjUoVR-oO1KhVgtZXRU69_IoV746nVAoWUIzTFlcRXD-HYC2oHK-T4moUiVCKlWVjRR3aogsfzbqbUekCbDTRsvGfq4cDPg"/>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Oceania</span>
+<p class="text-label-md font-label-md text-outline">42 Destinations</p>
+</div>
+<!-- Region Card 4 -->
+<div class="flex-shrink-0 w-40 md:w-56 group cursor-pointer">
+<div class="h-56 md:h-72 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A dramatic mountain range in the Andes with snow-capped peaks and a crystal clear blue sky. The lighting is crisp and sharp, showcasing the rugged texture of the mountains. The aesthetic is clean and premium, utilizing a palette of cool blues and stark whites to convey reliability and the aspirational spirit of global travel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcKMvo9jFCvvlL0Kh_AnozykBmEAsOtJP6sAoiIE2Sdk2tGUD_SYdRr8Krdxxi5caSP0qf3MJtr1va9qHvZCPBhgf5BtclQsKBpXekIUac9RA2lDWm0_T4rs38fV5YFyEG_KeavaXRtD6tmu_hmXC0goL2qxdUCXp3h1gQusy9YK1nBek6feK8GJzv9X1-w26RG-5bMD_9JV-BIhBPi-Lnl10IYtzvZyvqRthx90XnwesbTTMLaYwU-h_YpizrYNqEHYlekzLeag"/>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Americas</span>
+<p class="text-label-md font-label-md text-outline">215 Destinations</p>
+</div>
+</div>
+</section>
+<!-- Recent Journeys Bento Grid -->
+<section class="mb-section-margin">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Recent Journeys</h3>
+<button class="text-secondary text-label-md font-label-md hover:underline">See Journey History</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-card-gap">
+<!-- Main Featured Journey -->
+<div class="md:col-span-2 relative group rounded-2xl overflow-hidden h-[320px] shadow-sm hover:shadow-md transition-all active:scale-[0.99]">
+<img class="w-full h-full object-cover" data-alt="A night view of Shinjuku, Tokyo, with vibrant neon signs and the light trails of city traffic. The mood is energetic and modern. The color palette features intense magenta, electric blue, and deep blacks. The lighting is high-contrast, representing the vibrant adventure element of the brand within a reliable, high-end travel interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK2tI0lHGy81zW13OONYtwv4wO6iAxx0IjJjAaO5zwRuSFAZygcvIbx145UsVXEYkGYji3uk4uS1CwUyIO03gxIgFkdWx_5qPGaRt25saFevm8G4uhtJTzCNo8nbIuC38jV_FnFwa-Jb9mla6x3dvTQDtwBTZ1K_KWAiKXbmnDP768D348r1EyHQ70-3LqwYAygAs5Te-vpLrxIdjzMUUhPxuZk0XIOBlVdsJRZL-hs2oRhcjDllXeUd9FqG6RXocnmiukkHfkCg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-6 flex flex-col justify-end">
+<div class="flex items-center gap-2 mb-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-1 rounded-full text-label-md font-label-md">Completed</span>
+<span class="text-white/80 text-label-md font-label-md">• Oct 2023</span>
+</div>
+<h4 class="text-white text-headline-md font-headline-md">The Neon Lights of Tokyo</h4>
+<p class="text-white/70 text-body-md font-body-md">14 days • 4 locations • $4,200</p>
+</div>
+</div>
+<!-- Secondary Journey 1 -->
+<div class="bg-surface-container rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] cursor-pointer">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-outline-variant text-on-surface-variant px-3 py-1 rounded-full text-label-md font-label-md">Past</span>
+</div>
+<h4 class="text-on-surface text-headline-sm font-headline-sm mb-1">Swiss Alps Retreat</h4>
+<p class="text-outline text-body-md font-body-md">7 days • Zermatt &amp; Lucerne</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex -space-x-2">
+<img alt="Friend" class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC22r2_UeS7Njek4HjRrZftqthm1tkedkZ5RCd2I1Hevt5p0Dg-SNLmW8IcFrYZ3llFSDnDm7xYKrMZcbNcGp3fjVbHTIwR5lCDA5E8PCoMivQB4k4zG6gBM-iQDAx4MgqzQ9aswkgcd2MkftilrMUwNekVAgdwatZ6cLIH-465HW1JFkMiAs1MEXMuKilyPuLEljekMplfPCbjY2bUcKc_kNbDjl2wYnLrvRQsVSwGd6Mhg8wXQg3aGA_qceECH_gQlEUdZCeC8w"/>
+<img alt="Friend" class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhZiEczkxHFzLYjtNUQs6UFyt2FdjDb7fliO5etl-kOsfet0JBBIrLKIoNzJLrS5Wn4XdouXWtO_Yl-l1m-7J0pA6sC1ksYa_TW3XsiwfJM45zo5j1VF3bMUPLlJTvoL2ftb3IXkcvh5ErHPynt4NnPelT4SsHHsSAXTPTylJluo0oP5XHBMlkLIRJWz8lXil1vh_X-52m4YqARiCNBXyOuH_SlD6_dL_ckmJ20Ixl6n-92HdJ-PFEOWyFTDYYBAZpMszNej0o1w"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Secondary Journey 2 -->
+<div class="bg-surface-container rounded-2xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all active:scale-[0.99] cursor-pointer">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-outline-variant text-on-surface-variant px-3 py-1 rounded-full text-label-md font-label-md">Past</span>
+</div>
+<h4 class="text-on-surface text-headline-sm font-headline-sm mb-1">Kyoto Temples</h4>
+<p class="text-outline text-body-md font-body-md">5 days • Historical Tour</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-md font-label-md">High rated trip</span>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Secondary Journey 3 (Longer Card) -->
+<div class="md:col-span-2 bg-primary-container text-on-primary-fixed rounded-2xl p-6 flex items-center gap-6 shadow-sm hover:shadow-md transition-all active:scale-[0.99] cursor-pointer">
+<div class="w-24 h-24 rounded-xl overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A minimalist architectural shot of a modern Mediterranean villa with clean white lines against a clear blue sky. The lighting is bright and even, creating a serene and premium feel. The aesthetic aligns with high-end travel and reliable planning, using a limited palette of white and sky blue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGXUWZ-MeNZMnchYVvuozEtiahrRQo5JtumeRzKmw6VJXHAbnPCbDikFEiw0a5WImXzVIo401q2w6s40pgjAZh1tCAf5qKva3jNq9ECSW2S3Z8Wtd9_1ZUG4JRq5ZB2yrP09-0B4BJjMI0jOebDDKi45eCb3ofNFSKXzKbNe12YwI19alTRVWYDyzk1yGwdcZackBOTYCnE6WnzL6MX8FM-MK9Eqpqag5wQb_mGsCFnVDT2mPhfjTYcgg3L4tD9hBKkGrHMZ1vhQ"/>
+</div>
+<div class="flex-grow">
+<h4 class="text-on-primary text-headline-sm font-headline-sm mb-1">Parisian Weekend Escape</h4>
+<p class="text-on-primary-container text-body-md font-body-md mb-2">3 days • City Exploration • $850</p>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-label-md font-label-md"><span class="material-symbols-outlined text-[14px]" data-icon="event">event</span> June 2023</span>
+<span class="flex items-center gap-1 text-label-md font-label-md"><span class="material-symbols-outlined text-[14px]" data-icon="group">group</span> 2 Travelers</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-primary" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (Plan a Trip) -->
+<button class="fixed bottom-24 right-container-padding z-50 flex items-center gap-3 bg-secondary text-white px-6 py-4 rounded-full shadow-lg hover:bg-secondary/90 transition-all active:scale-90 fab-container">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-bold text-label-md font-label-md uppercase tracking-wider">Plan a Trip</span>
+</button>
+<!-- BottomNavBar Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container-low rounded-t-xl shadow-lg md:hidden">
+<div class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed-dim rounded-full px-4 py-1 Active: scale-95 transition-all duration-150 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="text-label-md font-label-md">Discover</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-label-md font-label-md">Trips</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-md font-label-md">Plan</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Community</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</div>
+</nav>
+</body></html>

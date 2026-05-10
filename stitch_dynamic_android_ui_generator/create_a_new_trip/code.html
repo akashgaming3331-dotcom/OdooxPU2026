@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Create a New Trip</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "inverse-primary": "#b6c7e9",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb59c",
+                    "on-primary-container": "#7586a5",
+                    "on-secondary-fixed-variant": "#004f51",
+                    "surface-container-low": "#f2f4f6",
+                    "on-surface": "#191c1e",
+                    "surface-bright": "#f7f9fb",
+                    "secondary": "#00696b",
+                    "primary-container": "#0a1d37",
+                    "on-primary-fixed-variant": "#364763",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-surface": "#2d3133",
+                    "outline": "#75777e",
+                    "secondary-fixed-dim": "#2ddbde",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#d76135",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#00030a",
+                    "on-secondary-container": "#006e70",
+                    "tertiary": "#090100",
+                    "secondary-container": "#56f5f8",
+                    "on-tertiary-fixed": "#380c00",
+                    "tertiary-container": "#3b0d00",
+                    "on-tertiary-fixed-variant": "#822800",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container": "#eceef0",
+                    "on-surface-variant": "#44474d",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f7f9fb",
+                    "on-secondary-fixed": "#002020",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#5af8fb",
+                    "primary-fixed-dim": "#b6c7e9",
+                    "surface-tint": "#4e5f7c",
+                    "surface-container-high": "#e6e8ea",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-dim": "#d8dadc",
+                    "tertiary-fixed": "#ffdbcf",
+                    "outline-variant": "#c5c6ce",
+                    "on-primary-fixed": "#081c36",
+                    "background": "#f7f9fb",
+                    "inverse-on-surface": "#eff1f3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "card-gap": "16px",
+                    "container-padding": "20px",
+                    "unit": "8px",
+                    "touch-target": "48px",
+                    "section-margin": "32px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-sm": ["Plus Jakarta Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface dark:bg-background shadow-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="explore">explore</span>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwxK1PnOJD3lyJLmnU--SXRIZlcO_3D6_l-hJoKqLJ-BrLyqvaPax2oKtvhMNcNCcCL1ZjmsU8Q1c324gbmKVP6QIaCGo6xfH_BkRrRMbTdFVHlefLNO_qsPUVl7vohg14Wntu8ijfLXX9nNHbzBTuk3-2sxsx1k2SGT2m-IY3EVL5Jhb-E1Hd2hK9-yDyjzpwUiNZFVtyRZGryOjDlVjhESDAhk43YnoZ-uDjHWbiJEicGTM8VIWBrlLlapglWOCbv_1a5SaFkw"/>
+</div>
+</header>
+<main class="pt-20 px-container-padding max-w-2xl mx-auto">
+<!-- Header Section -->
+<section class="mb-section-margin">
+<h1 class="font-display-lg text-display-lg mb-2">Create a New Trip</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Start your next adventure by filling in the details below.</p>
+</section>
+<!-- Planning Form Container -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-surface-container-high space-y-6 mb-section-margin">
+<!-- Destination Search -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">DESTINATION</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="location_on">location_on</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border-none bg-surface-container text-body-lg focus:ring-2 focus:ring-secondary transition-all" placeholder="Where do you want to go?" type="text"/>
+</div>
+</div>
+<!-- Date Range Pickers -->
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">START DATE</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="calendar_today">calendar_today</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border-none bg-surface-container text-body-md focus:ring-2 focus:ring-secondary" type="date"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-primary">END DATE</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="calendar_month">calendar_month</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border-none bg-surface-container text-body-md focus:ring-2 focus:ring-secondary" type="date"/>
+</div>
+</div>
+</div>
+<!-- Budget Selectors -->
+<div class="space-y-3">
+<label class="font-label-md text-label-md text-primary">BUDGET LEVEL</label>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex flex-col items-center p-3 rounded-xl border-2 border-surface-container-high hover:border-secondary-container hover:bg-secondary-container transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-on-secondary-container" data-icon="savings">savings</span>
+<span class="font-label-md text-label-md mt-1">Economic</span>
+</button>
+<button class="flex flex-col items-center p-3 rounded-xl border-2 border-secondary bg-secondary-container text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+<span class="font-label-md text-label-md mt-1">Moderate</span>
+</button>
+<button class="flex flex-col items-center p-3 rounded-xl border-2 border-surface-container-high hover:border-secondary-container hover:bg-secondary-container transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-on-secondary-container" data-icon="diamond">diamond</span>
+<span class="font-label-md text-label-md mt-1">Luxury</span>
+</button>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-[#FF7043] hover:bg-[#F4511E] text-white py-4 rounded-full font-headline-sm text-headline-sm shadow-md transition-transform active:scale-95">
+                Create Itinerary
+            </button>
+</div>
+<!-- Suggestions Section (Bento-style Grid) -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-md text-headline-md">Inspiration for you</h2>
+<button class="text-secondary font-label-md text-label-md">View all</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Large Featured Suggestion -->
+<div class="col-span-2 relative h-48 rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A cinematic, high-key photograph of the Eiffel Tower at sunset, bathed in a warm orange and golden glow. The sky is a gradient of soft peach and deep navy blue. The surrounding Parisian streets are blurred in the distance, creating a sense of romantic isolation and premium travel experience. The lighting is soft and ethereal, emphasizing the elegant architectural lines of the monument." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXYI___xjOY_ZFhTWBt8aZ00Yy3jn8_0sb4GTumnsaqNgeSWjxIm-b7scKHriZqHD7Ypp50guBssqmibgsTwfe-YnlYvB-Q8Xnkr8lA8TNQ1rA4BqOwGrHJvDxTEx2RYGIB9iIhiZsD7D0R0wUni-33Q-6jYhlctrS3fhP8F9M8q711AvEXTBv2H2bP8B_QhpmVHsBRNFHZbkWh65mLV7tZ7Rp3qm2kMhhqwihoSuFKUAH2xZwcQYhyPqsPT8kDHH3hqGBomiSZw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded-full w-fit mb-2">TRENDING</span>
+<h3 class="text-white font-headline-sm text-headline-sm">Paris: City of Lights</h3>
+<p class="text-white/80 font-body-md text-body-md">Romantic walks &amp; historic cafes</p>
+</div>
+</div>
+<!-- Suggestion 2 -->
+<div class="relative h-40 rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A luxurious overwater villa resort in the Maldives, featuring turquoise crystal-clear waters and white sandy beaches. The bright morning sun illuminates the scene, creating vibrant teal and emerald water tones against a pristine white sky. The aesthetic is clean, modern, and aspirational, highlighting a high-end luxury vacation mood with peaceful and serene lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu2SbiIYiX-JiDz6w8OXeah4AyR5QUaC9mnh1QO7_h1DUzueduQJwQmCo-djupTY9QhEEPvbDPr6jgG0YorZHjguZklNER9_fak1FiOwSvecs73KoOJ9QLcaJzIEgY9qgSxHBMPSvGYrhRc8P5xudqLCgB6bMP5ch5krd7tfGyZ0RmGTblvkUqrHkcdPDbDqGeC-yaqq4rpUIIHKwACSoVSoVjqzrdo-vRluiQrCxNIQPvs5gve3N5XXpI7plzI9iFRGbqorOThw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-3">
+<h3 class="text-white font-label-md text-label-md font-bold">Luxury Resorts</h3>
+</div>
+</div>
+<!-- Suggestion 3 -->
+<div class="relative h-40 rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A lush green mountain valley in Vietnam, featuring tiered rice paddies and a misty morning atmosphere. The color palette is dominated by deep forest greens and soft grey-whites. The lighting is diffused and atmospheric, capturing the quiet majesty of nature. The visual style is reliable and organized, suggesting a perfectly planned trekking adventure in Southeast Asia." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyCiPls1XDcK8e74Ra3sZzRmCbCJHVVXjJ1p5N8IgLgZG6OkvtrFRVPNGvK8_8kLsDkVuZpMOkgS_6XkkvFAlm2sY93EJw8W6K0Q-attOhHeIGiA931oGDhNdI67hj7HVq4bvs9qMGdG9CzK61vZzUO8LinuCqpDcRz3U1BSGVCUjhrYhvKxR7sWqqByzDQdlc5kZ1DX5sH-ENgGVonSpB_iZUVIxztngVwKQLGQ6HUNzpZS6bw3Q10nkQodeNobZ7kZdeLWifig"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-3">
+<h3 class="text-white font-label-md text-label-md font-bold">Nature Escapes</h3>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container-low shadow-lg rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label-md text-label-md">Discover</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md">Trips</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed-dim rounded-full px-4 py-1 Active: scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-label-md text-label-md">Plan</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Community</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+</body></html>

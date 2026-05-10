@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(uuid())
+  email          String         @unique
+  passwordHash   String
+  firstName      String
+  lastName       String
+  profileImage   String?
+  role           String         @default("USER") // USER or ADMIN
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  deletedAt      DateTime?
+
+  trips          Trip[]
+  refreshTokens  RefreshToken[]
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Trip {
+  id          String       @id @default(uuid())
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  coverImage  String?
+  startDate   DateTime
+  endDate     DateTime
+  status      String       @default("PLANNING") // PLANNING, UPCOMING, ONGOING, COMPLETED
+  isPublic    Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  stops       Stop[]
+  budget      Budget?
+  notes       TripNote[]
+  checklists  PackingChecklist[]
+  sharedTrip  SharedTrip?
+}
+
+model City {
+  id          String   @id @default(uuid())
+  name        String
+  country     String
+  lat         Float
+  lng         Float
+  description String?
+  imageUrl    String?
+  stops       Stop[]
+}
+
+model Stop {
+  id           String     @id @default(uuid())
+  tripId       String
+  trip         Trip       @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  cityId       String
+  city         City       @relation(fields: [cityId], references: [id], onDelete: Restrict)
+  arrivalDate  DateTime
+  departureDate DateTime
+  orderIndex   Int
+
+  activities   Activity[]
+  
+  @@index([tripId])
+}
+
+model Activity {
+  id          String   @id @default(uuid())
+  stopId      String
+  stop        Stop     @relation(fields: [stopId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  date        DateTime?
+  cost        Float?   @default(0)
+  location    String?
+  orderIndex  Int
+}
+
+model Budget {
+  id          String   @id @default(uuid())
+  tripId      String   @unique
+  trip        Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  totalLimit  Float
+  currency    String   @default("INR")
+  updatedAt   DateTime @updatedAt
+}
+
+model TripNote {
+  id        String   @id @default(uuid())
+  tripId    String
+  trip      Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PackingChecklist {
+  id        String   @id @default(uuid())
+  tripId    String
+  trip      Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  itemName  String
+  isPacked  Boolean  @default(false)
+  category  String?
+}
+
+model SharedTrip {
+  id        String   @id @default(uuid())
+  tripId    String   @unique
+  trip      Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  slug      String   @unique
+  views     Int      @default(0)
+  createdAt DateTime @default(now())
+  
+  @@index([slug])
+}
+
+model AdminLog {
+  id        String   @id @default(uuid())
+  adminId   String
+  action    String
+  // JSON not supported natively in all sqlite setups, but prisma handles it as string in sqlite or we can use String
+  metadata  String?
+  createdAt DateTime @default(now())
+}

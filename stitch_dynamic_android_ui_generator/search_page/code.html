@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveloop - Adventure Search</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7f9fb;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#b6c7e9",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#ffb59c",
+                        "on-primary-container": "#7586a5",
+                        "on-secondary-fixed-variant": "#004f51",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "secondary": "#00696b",
+                        "primary-container": "#0a1d37",
+                        "on-primary-fixed-variant": "#364763",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-surface": "#2d3133",
+                        "outline": "#75777e",
+                        "secondary-fixed-dim": "#2ddbde",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#d76135",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00030a",
+                        "on-secondary-container": "#006e70",
+                        "tertiary": "#090100",
+                        "secondary-container": "#56f5f8",
+                        "on-tertiary-fixed": "#380c00",
+                        "tertiary-container": "#3b0d00",
+                        "on-tertiary-fixed-variant": "#822800",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#44474d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "on-secondary-fixed": "#002020",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#5af8fb",
+                        "primary-fixed-dim": "#b6c7e9",
+                        "surface-tint": "#4e5f7c",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-fixed": "#081c36",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "card-gap": "16px",
+                        "container-padding": "20px",
+                        "unit": "8px",
+                        "touch-target": "48px",
+                        "section-margin": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-touch-target bg-surface dark:bg-background shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="explore">explore</span>
+<h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Traveloop</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors" data-icon="notifications">notifications</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden ring-2 ring-primary-container">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAbUaWAORLVaRihCurIDC246b2l1cmDl4RD695A2RAbnuL2ip6lJ_dh5Dj2BeZyjhMBDnU2SEaw6Z8g-BGEcEAvRAj3qW0BfMmdzl1Mx_UYRcWFn8OKJjYfFtBdVPvx92L19TwXbPpHTG1b8JvR7_4r1PeG69I2COEBXhb2qU2P7xYL0DPo67nb0Ap8GEVdPIX3wvhKY-j0kvCT_WB0nBdR7yoj0ba_Lf4ejusRlVKZg3WA3xqA8OdQ5NhLbmUV27tnXbfkv_n8A"/>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-20 px-container-padding max-w-4xl mx-auto">
+<!-- Search & Filter Section -->
+<section class="space-y-4 mb-section-margin">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" data-icon="search">search</span>
+</div>
+<input class="w-full pl-12 pr-4 h-14 bg-surface-container-lowest border-none rounded-xl shadow-sm focus:ring-2 focus:ring-primary font-body-lg text-on-surface" placeholder="Search activities..." type="text" value="Paragliding"/>
+</div>
+<!-- Horizontal Filter Chips -->
+<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full whitespace-nowrap font-label-md text-label-md transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                    Filter
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="sort">sort</span>
+                    Price: Low to High
+                </button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Distance</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Duration</button>
+<button class="px-4 py-2 bg-surface-container-high text-on-surface-variant rounded-full whitespace-nowrap font-label-md text-label-md hover:bg-surface-container-highest transition-colors">Instant Book</button>
+</div>
+</section>
+<!-- Results Header -->
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">32 Results Found</h2>
+<button class="flex items-center gap-2 text-secondary font-label-md text-label-md hover:underline">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+                View Results on Map
+            </button>
+</div>
+<!-- Bento Grid / Activity Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-card-gap">
+<!-- Featured Card (Large) -->
+<article class="md:col-span-2 group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-surface-variant/20">
+<div class="aspect-[21/9] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A wide panoramic shot of dozens of colorful paragliders soaring gracefully over the turquoise waters of the Blue Lagoon in Oludeniz, Turkey. The sun is setting behind rugged coastal mountains, casting a warm golden glow over the entire landscape. The sky is a gradient of deep orange and soft violet, reflecting the premium adventure aesthetic of the Traveloop brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXWATZGtK2dH8Ebs9kDlxys7gyrjtyLeF7vlCLF2yWxXoPen8ktVX55FdrZo7i1KtIU31ZcAIkhILfroFEWHbf2Df8ixQlD4wvGO7lT7yeMpecA0jv7rWsjgWVA1unFJWz1vb6BFWCY_e1KKl2q3tmiFfv2BzxtvidxvJgTL4CdU-QS-MuI2RYHWJOIsiJoupO2s8kDpWs48Law5KSqSo2V8AunKcSrrYsTXi6XU9YxaY4JaLogckTZ_UuUpEj5banx8-a-XLENw"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-lg font-label-md text-label-md">FEATURED</div>
+<button class="absolute top-4 right-4 bg-surface/80 backdrop-blur-md p-2 rounded-full text-on-surface hover:text-error transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-container-padding flex flex-col md:flex-row justify-between gap-4">
+<div class="space-y-2">
+<h3 class="text-headline-sm font-headline-sm text-primary">Skyward Adventure: Ölüdeniz</h3>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-md text-body-md">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="location_on">location_on</span>
+                                Fethiye, Turkey
+                            </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9 (2.1k reviews)
+                            </span>
+</div>
+</div>
+<div class="flex flex-col items-end justify-center">
+<span class="text-headline-md font-headline-md text-primary">$185</span>
+<span class="text-label-md font-label-md text-on-surface-variant">per person</span>
+</div>
+</div>
+</article>
+<!-- Standard Result 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-surface-variant/20">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional paragliding instructor and a tourist in mid-air over the lush green Interlaken valley in Switzerland. The majestic snow-capped Alps dominate the background under a clear, brilliant blue sky. The composition is vibrant and high-contrast, emphasizing the clean, organized, and reliable spirit of the Traveloop planning service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf3PmYcMT07iYO-BJdwSJIsVXxWLos6oQijKdi2svij5TPS-EOJDOUhjZIqW7jTvDeczMfvMWP2tNUZUS3QemlkaEvL82nlNQ1M2bFsr0m86_VtDV5HlwIIsblzCH85ABwlBNkJES4Qz-6j2ckPWHIE5fZn0hZm__pltb0GY77tisY61UPdXayv4pCs28S8Z4MFYUR2nL3SokViZfSG0iUUQvFafa9NAfTpNns4IFXE-pMoU_P4EilAAg6nhM-RJnO_FtLYXXt_w"/>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded font-label-md text-label-md text-primary">2h duration</div>
+</div>
+<div class="p-4 space-y-3">
+<h4 class="text-body-lg font-bold text-on-surface">Alpine Gliding Interlaken</h4>
+<div class="flex justify-between items-center">
+<div class="text-on-surface-variant text-body-md font-body-md">Switzerland</div>
+<div class="font-bold text-secondary text-headline-sm">$210</div>
+</div>
+<div class="pt-2 border-t border-surface-variant/30 flex justify-between items-center">
+<span class="flex items-center gap-1 text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+                            Top Rated
+                        </span>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md active:scale-95 transition-all">Book Now</button>
+</div>
+</div>
+</article>
+<!-- Standard Result 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-surface-variant/20">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A scenic paragliding flight over the rugged, red rock canyons of Pokhara, Nepal with Mount Machhapuchhre visible in the distance. The lighting is crisp morning light with long shadows. The overall aesthetic is one of corporate modern reliability mixed with the raw excitement of global exploration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlhqY1rWPXgUc5SuZ8Q6aXpT-reSGaIFtj-uFqQTBrM4p5bivGvm1y7-91O_OpFKQbVYywjanHvtmOqZZEQ8BugblNwMc50z1bV5NZIuCIFG7zE8ZQcSp5jHTvq-7xs_xQN7jMl55QZLNnAaYTmfJQbM6tgeRpvltoXHMknJpXqR3wViouJ8eK2S4pRR-GvhnE4OJwcyksMaGRjv5zBgo1zfpdNvVdVxQmGuBjWtEQOtoz-Pi79ABo3ic2fH0-gob6Mkg9vPDD-Q"/>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded font-label-md text-label-md text-primary">3.5h duration</div>
+</div>
+<div class="p-4 space-y-3">
+<h4 class="text-body-lg font-bold text-on-surface">Himalayan Peak Soar</h4>
+<div class="flex justify-between items-center">
+<div class="text-on-surface-variant text-body-md font-body-md">Pokhara, Nepal</div>
+<div class="font-bold text-secondary text-headline-sm">$120</div>
+</div>
+<div class="pt-2 border-t border-surface-variant/30 flex justify-between items-center">
+<span class="flex items-center gap-1 text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="groups">groups</span>
+                            Group Discount
+                        </span>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md active:scale-95 transition-all">Book Now</button>
+</div>
+</div>
+</article>
+<!-- Standard Result 3 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-surface-variant/20">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up action shot of a paraglider launching from a grassy cliff over the ocean in Rio de Janeiro. The Christ the Redeemer statue is visible in the far background. Bright midday sun creates vibrant colors and high energy. Modern UI elements and professional travel photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5FqSBYucFf618KWiLjfkGuF8OEpwIAGyrlTsoXFRynoggyz2B6KqqV2ymsMFAjgXFPpDpd0tNHqIYqXJmxhIoNoTosE19_HLbRxYqnJWUS9cfdWSZlefIGerXcVRueBDr4zpxkk2A9npqJ_1nVGDtBkftDDsNJbdE9SSPP8MtxQWQQDC_yhFHHjGvjyEFqKuzWY8DUuixkkw4vd19brhbylIsl9UvjXObul2sYr570_-BT2MBKUA3INrB49eWpv6vg_pMQE6Djw"/>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded font-label-md text-label-md text-primary">1h duration</div>
+</div>
+<div class="p-4 space-y-3">
+<h4 class="text-body-lg font-bold text-on-surface">Rio Coastal Flight</h4>
+<div class="flex justify-between items-center">
+<div class="text-on-surface-variant text-body-md font-body-md">Brazil</div>
+<div class="font-bold text-secondary text-headline-sm">$155</div>
+</div>
+<div class="pt-2 border-t border-surface-variant/30 flex justify-between items-center">
+<span class="flex items-center gap-1 text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+                            Instant Book
+                        </span>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-label-md text-label-md active:scale-95 transition-all">Book Now</button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container-low rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed-dim rounded-full px-4 py-1 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-label-md font-label-md">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-label-md font-label-md">Trips</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-label-md font-label-md">Plan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-md font-label-md">Community</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</a>
+</nav>
+<!-- FAB (Contextual for Search) -->
+<div class="fixed bottom-24 right-container-padding z-40">
+<button class="w-14 h-14 bg-secondary text-on-secondary rounded-2xl shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[32px]" data-icon="calendar_month">calendar_month</span>
+</button>
+</div>
+</body></html>
